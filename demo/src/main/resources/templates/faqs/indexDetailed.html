@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="onestorage">
+    <meta name="keywords" content="onestorage,one,storage,问题,常见问题,FAQ">
+    <title>ONE STORAGE</title>
+    <link rel="stylesheet" th:href="@{/css/assets/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/onestorageindex.css}">
+    <script th:src="@{/js/assets/jquery.js}"></script>
+    <script th:src="@{/js/layer/layer.js}"></script>
+    <script th:src="@{/js/assets/angular.js}"></script>
+    <script th:src="@{/js/assets/angular-translate.min.js}"></script>
+    <script th:src="@{/js/assets/angular-translate-loader-static-files.min.js}"></script>
+    <script th:src="@{/js/onestorageindex.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+    <script th:inline="javascript">
+        var ctx = [[@{/}]];
+    </script>
+
+
+</head>
+
+<body ng-app="myapp" ng-controller="indexDetailedController">
+<div id="wrap">
+    <div id="top">
+        <div class="uk-container uk-container-center">
+            <div class="uk-float-right">
+                <span class="glyphicon glyphicon-globe" style="right: 5px;font-size: 14px;"></span>
+                其他語言 :
+                <a style="color: #fff;" href="http://www.onestorage.com.hk/page.php?id=9&amp;lang_id=2">
+                    ENG
+                </a>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="uk-container uk-container-center" style="position: relative;">
+            <div id="top-phone" style="color: #f78325; position: absolute; right: 40px; top: 20px; font-size: 16px; font-weight: bold;">
+                <span class="d-none d-md-inline-block"><a href="https://www.facebook.com/onestorage/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjguNzY1LDUwLjMxOWg2Ljc0NFYzMy45OThoNC40OTlsMC41OTYtNS42MjRoLTUuMDk1ICBsMC4wMDctMi44MTZjMC0xLjQ2NiwwLjE0LTIuMjUzLDIuMjQ0LTIuMjUzaDIuODEyVjE3LjY4aC00LjVjLTUuNDA1LDAtNy4zMDcsMi43MjktNy4zMDcsNy4zMTd2My4zNzdoLTMuMzY5djUuNjI1aDMuMzY5VjUwLjMxOXogICBNMyw0aDYwdjYwSDNWNHoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiMzQTU4OUI7Ii8+PC9zdmc+" style="width: 30px;"></a> | </span>
+                <span class="mob_dis">付款方式: 現金.EPS.支票.信用卡.轉數快.免息分期</span> <span style="display:none;"><i class="fa fa-phone uk-margin-small-right" style="vertical-align:middle;"></i>電話：2111-2636</span><a id="24hr-enq" href="/contact.php?id=10"><img src="https://www.onestorage.com.hk/images/contact_24_7.png" alt="" style="height:32px;vertical-align:middle;"></a>                </div>
+            <a id="mobile_bar" class="uk-hidden-large uk-float-right" href="#offcanvas-1" data-uk-offcanvas=""><i class="fa fa-bars f25"></i></a>
+            <h1 id="logo"><a href="https://www.onestorage.com.hk/"><img src="https://www.onestorage.com.hk/images/logo.png"></a></h1>
+            <!-- nav-wrap S -->
+            <nav class="nav-wrap uk-float-right uk-visible-large">
+                <ul id="nav" class="uk-float-left header-menu">
+                    <li class="nav-item">
+                        <a href="page.php?id=3" class="top-a top-a3">
+                            關於我們                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+
+                            <button class="btn btn-link a top-a17" type="button" id="dropdown-district" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地區分店及價錢</button>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdown-district">
+                                <a class="dropdown-item" href="page.php?id=17">
+                                    所有                                            </a>
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=50">
+                                    柴灣(柴工分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=51">
+                                    柴灣(萬峰分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=21">
+                                    柴灣 (王子分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=32">
+                                    新蒲崗(捷景分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=23">
+                                    葵涌(同珍分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=29">
+                                    葵涌(有利分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=37">
+                                    葵興(貴豐分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=45">
+                                    葵芳(美適分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=22">
+                                    荃灣(京華分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=24">
+                                    青衣(青衣工業中心)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=44">
+                                    馬灣                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=39">
+                                    火炭(富昌分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=40">
+                                    火炭(華威分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=25">
+                                    屯門(通明分店)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=35">
+                                    葵涌(共享倉)                                                    </a>
+
+
+                                <!--  -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=43">
+                                    火炭(共享倉)                                                    </a>
+
+
+                                <!--                                                         <a class="hmenu dropdown-item" href="page.php?id=17&aid=43" id="banner-ty-discount-top">
+                                        <img src="/images/Button_003.jpg" class="img-fluid">
+                                        <span class="d-none">火炭 banner</span>
+                                    </a>
+                                 -->
+
+                                <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=49">
+                                    零售存貨物流服務-葵芳站                                                    </a>
+
+
+                                <!--  -->
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="page.php?id=4" class="top-a top-a4">
+                            最新優惠                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="page.php?id=6" class="top-a top-a6">
+                            服務設備                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news_list.php?id=7&amp;main=1" class="top-a top-a7">
+                            最新資訊                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="page.php?id=9" class="top-a top-a9 active">
+                            常見問題                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="page.php?id=36" class="top-a top-a36">
+                            職位空缺                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.php?id=10" class="top-a top-a10">
+                            聯絡我們                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="size_calculator.php" class="top-a top-a47">
+                            空間計算器                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.php#calculator" class="top-a top-a41">
+                            立即報價                                    </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- nav-wrap E -->
+        </div>
+    </header>
+    <hr style="margin-bottom: 0px;">
+    <!--内容-->
+    <div class="page_box" style="/* text-align:justify; */">
+        <div class="uk-container uk-container-center">
+
+            <h2 class="uk-h1 uk-text-center page_title">常見問題</h2>
+
+            <!-- 搜索-->
+            <div class="nav-select">
+                <div class="input-group" style="width: 70%;margin: auto;margin-bottom: 20px;">
+                    <input style="height: 40px;border-right-color: #fff;" ng-model="searchTest" id="search" type="text" placeholder="Search..." class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-keyup="onKeyup(event)">
+                    <span class="input-group-addon" style="background-color: #fff;"><a style="font-size: 18px;color: black;" href="javascript:;" ng-click="getSearch()"><span class="glyphicon glyphicon-search"></span></a></span>
+                </div>
+            </div>
+
+            <!-- 问题-->
+            <div style="padding:5%; background:#F4F4F4;">
+                <style type="text/css">
+                    .page_box .uk-accordion-title { background:none; padding:0; border:0; font-weight:bold; }
+                    .panel { background:#fff; margin-bottom:20px; }
+                    .panel-title  { margin-bottom:0; }
+                    .page_box .panel-title { transition: all .5s;
+                        font-size:20px;
+                        background:#fff;
+                        color:#000;
+                        display: block;
+                        padding: 30px 30px 25px 30px;
+                        border-radius: 0;
+                        box-shadow: none; }
+                    .panel-title.uk-active,.panel-title:hover { background:#612b80; color:#fff; }
+                    .page_box .uk-accordion-content { padding:0; }
+                    .collapse>div {
+                        padding: 0px 30px 35px 30px;
+                        background:#612b80;font-weight:bold;
+                        color: #ffffff; font-size:20px; }
+                    .panel-collapse.uk-active {
+                        display: block;
+                    }
+                </style>
+                <div class="uk-accordion" data-uk-accordion="">
+                    <div class="panel">
+                        <div class="panel-heading" role="tab"  style="background: #612b80;">
+                            <h4 class="panel-title uk-accordion-title uk-active">{{detailed.title}}</h4>
+                        </div>
+                    </div>
+
+                    <!-- 内容-->
+                    <div>
+                        <div ng-bind-html="content" style="padding: 0px 8px;">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

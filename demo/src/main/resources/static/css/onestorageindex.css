@@ -1,0 +1,149 @@
+html, body {
+    font: 400 16px/21px "微軟正黑體","Microsoft Yahei",Helvetica,Arial,sans-serif;
+}
+#top {
+    background: #612b80;
+    padding: 5px 0;
+    text-align: right;
+    color: #fff;
+}
+a:hover { text-decoration:none !important; }
+#logo {
+    margin-bottom: 0;
+    margin-top: 0;
+    display: inline-block;
+}
+#logo img {
+    width: 150px;
+}
+.mob_dis {
+    display: inline-block;
+    margin-right: 25px;
+    color: #000;
+}
+.uk-container:after, .uk-container:before {
+    content: "";
+    display: table;
+}
+.uk-container-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.uk-float-right {
+    float: right;
+}
+.uk-float-left {
+    float: left;
+}
+.uk-container:after {
+    clear: both;
+}
+header,#nav{
+    display: block;
+}
+header>div {
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+}
+#nav {
+    margin-top: 35px;
+    padding-left: 0;
+}
+#nav #dropdown-district {
+    border: 0;
+    text-decoration: none;
+}
+#nav > li {
+    float: left;
+    list-style: none;
+    margin: 0 0;
+}
+#nav > li > a, #nav .a {
+    display: block;
+    padding: 0 8px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #000;
+    transition: all .5s;
+    position: relative;
+}
+#nav > li > a.top-a.active:before, #nav > li > a.top-a:hover:before, #nav .a.active:before, #nav .a:hover:before {
+    right: 0;
+}
+#nav > li > a.top-a.active:after, #nav > li > a.top-a:hover:after, #nav .a.active:after, #nav .a:hover:after {
+    left: 0;
+}
+#nav > li > a.top-a.active, #nav > li > a.top-a:hover, #nav .a.active, #nav .a:hover {
+    color: #612b80;
+}
+#nav > li > a:before, #nav .a:before {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    content: '';
+    bottom: -5px;
+    height: 3px;
+    background: #612b80;
+    transition: all .5s;
+}
+#nav > li > a:after, #nav .a:after {
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    content: '';
+    bottom: -5px;
+    height: 3px;
+    background: #612b80;
+    transition: all .5s;
+}
+
+.page_title {
+    color: #000;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.uk-text-center {
+    text-align: center!important;
+}
+.uk-h1, h1 {
+    font-size: 36px;
+    line-height: 42px;
+}
+.page_title:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 40px;
+    background: #612b80;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+.page_box {
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "微軟正黑體","Microsoft Yahei",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    color: #222;
+    text-transform: none;
+}
+
+
+
+
+
+
+@media screen and (min-width: 1220px){
+    .uk-container {
+        max-width: 92% !important;
+    }
+}
+@media (min-width: 1220px){
+    .uk-container {
+        max-width: 1200px;
+        padding: 0 35px;
+    }
+}
