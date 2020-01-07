@@ -112,10 +112,14 @@ public class UrlController {
         return "faqs/admin/searchCollection";
     }
 
-
     @RequestMapping("/admin/folder")
     public String folder(){
         return "faqs/admin/folder";
+    }
+
+    @RequestMapping("/admin/selectFeedback")
+    public String selectFeedback(){
+        return "faqs/admin/selectFeedback";
     }
 
 

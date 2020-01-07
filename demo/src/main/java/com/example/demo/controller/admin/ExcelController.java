@@ -269,7 +269,7 @@ public class ExcelController {
 
 
     /**
-     * 获取全部点击率
+     * 获取全部反馈
      * @param response
      */
     @RequestMapping(value="/feedback")
@@ -317,6 +317,59 @@ public class ExcelController {
                 }
                 eeu.exportExcel1(workbook, index++, l.getTitle(), headers, data, out);
             }
+            //原理就是将所有的数据一起写入，然后再关闭输入流。
+            workbook.write(out);
+            out.flush();
+            out.close();
+            request.getSession().setAttribute("feedback","ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    /**
+     * 获取全部搜索结果
+     * @param response
+     */
+    @RequestMapping(value="/monitorSelectFeedbackReport")
+    public void monitorSelectReport(HttpServletResponse response, HttpServletRequest request,
+                         @RequestParam(name = "langId",required = false,defaultValue = "0")long langId,
+                         @RequestParam(name = "follow",required = false,defaultValue = "0")long follow,
+                         @RequestParam(name = "status",required = false,defaultValue = "0")long status,
+                         @RequestParam(name = "startTime",required = false,defaultValue = "")String startTime,
+                         @RequestParam(name = "endTime",required = false,defaultValue = "")String endTime){
+        try {
+            // 告诉浏览器用什么软件可以打开此文件
+            response.setHeader("content-Type", "application/vnd.ms-excel");
+            // 下载文件的默认名称
+            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("FAQ-Select-Feedback.xls", "utf-8"));
+            OutputStream out = response.getOutputStream();
+
+            String[] headers = { "ID","Suggest Content","Follow up","Follow Content","Name","Email","Phone","Language","IP","Create Date","Comment Status"};
+            ExcelUtils eeu = new ExcelUtils();
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            List<Object[]> list = dfeedbackDao.getSelectFeedbackExcel(langId,follow,status,startTime,endTime);
+            List<List<Object>> data = new ArrayList<List<Object>>();
+            for(int i = 0, length = list.size();i<length;i++){
+                Object[] os = list.get(i);
+                List rowData = new ArrayList();
+                rowData.add(os[0]);
+                rowData.add(os[4]);
+                rowData.add((int)os[6]==0?"No":"Yes");
+                rowData.add(os[5]);
+                rowData.add(os[7]);
+                rowData.add(os[8]);
+                rowData.add(os[9]);
+                rowData.add(os[11]);
+                rowData.add(os[2]);
+                rowData.add(os[12]);
+                rowData.add((int)os[10]==0?"Open":"Close");
+                data.add(rowData);
+            }
+            eeu.exportExcel1(workbook, 0, "sheet", headers, data, out);
             //原理就是将所有的数据一起写入，然后再关闭输入流。
             workbook.write(out);
             out.flush();

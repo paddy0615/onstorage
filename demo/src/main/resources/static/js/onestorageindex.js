@@ -92,6 +92,8 @@ myapp.controller("indexController",["$scope","$http","$location","$translate",fu
             $scope.indexShow = false;
             $scope.detaileds =  data.result.detaileds;
             $scope.folderList =  data.result.folderList;
+            $scope.searchFeedback =  data.result.searchFeedback;
+
         })
     }
     $scope.searchTest = "";
@@ -118,6 +120,11 @@ myapp.controller("indexController",["$scope","$http","$location","$translate",fu
     }
     /* 搜索框 结束*/
 
+    /**
+     * 搜索文件夹
+     * @param key
+     * @param langId
+     */
     $scope.getFolderUrl = function (key,langId) {
         $scope.folderList = {};
         $http({
@@ -130,19 +137,77 @@ myapp.controller("indexController",["$scope","$http","$location","$translate",fu
         })
     }
 
+    // 搜索反馈弹框
+    $scope.alertSet = function () {
+        $('#myModalAddFolder').modal();
+    }
+
+    $scope.selectFeedback = {};
+    // 提交搜索反馈信息
+    var lock1 = false; //默认未锁定
+    $scope.addSelectFeedback = function () {
+        if(!check1()){
+            return;
+        }
+        if(!lock1) {
+            lock1 = true; // 锁定
+            var index = layer.load(0, {shade: false});
+            $scope.selectFeedback.langId = $scope.langId;
+            $http({
+                method : "post",
+                url : ctx + "appJson/addSelectFeedback",
+                data : JSON.stringify($scope.selectFeedback)
+            }).success(function (data) {
+                lock1 = false;
+                layer.close(index);
+                if(data.code == 200){
+                    layer.msg('OK', {icon: 1});
+                    setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+                        window.location.reload();//页面刷新
+                    },1000);
+                }else{
+                    layer.msg("Error", {icon: 5});
+                }
+            })
+        }
+    }
+
+    function check1() {
+        console.log($scope.selectFeedback.email)
+        var reg1 = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+        var reg2 =  /^\d*$/
+        if(undefined != $scope.selectFeedback.email && "" != $scope.selectFeedback.email && !reg1.test($scope.selectFeedback.email)){ //正则验证不通过，格式不对
+            alert(commonLabel8($scope.langId));
+            return false;
+        }
+        if(undefined != $scope.selectFeedback.number && "" != $scope.selectFeedback.number && !reg2.test($scope.selectFeedback.number)){ //正则验证不通过，格式不对
+            alert(commonLabel9($scope.langId));
+            return false;
+        }
+        return true;
+    }
 
 
 }]);
 
 // indexDetailed
 myapp.controller("indexDetailedController",["$scope","$http","$sce","$location","$translate",function ($scope, $http, $sce,$location,$translate) {
-    // 设置默认,langId==6语言，英文;catId = 0默认选第二个
     $scope.dlId = GetUrlParam("dlId");
-    $scope.langId = GetUrlParam("langId")==""?6:GetUrlParam("langId");
+    $scope.langId = GetUrlParam("langId")==""?1:GetUrlParam("langId");
     $scope.catId = 0;
     $scope.isGetUrl = false;
     $scope.detailed ={};
     $scope.searchShow = false;
+
+
+    if($scope.langId == 1){
+        $scope.langTitle = '繁中';
+        $scope.img24 = 'https://www.onestorage.com.hk/images/contact_24_7.png';
+    }else{
+        $scope.langTitle = 'ENG';
+        $scope.img24 = 'https://www.onestorage.com.hk/images/contact_24_7_en.png';
+    }
+
     // 初始化
     into($scope.dlId);
     function into(dlId){
@@ -161,7 +226,6 @@ myapp.controller("indexDetailedController",["$scope","$http","$sce","$location",
                 $scope.selectTest = selectTest($scope.langId);
                 $scope.selectTestUnll = selectTestUnll($scope.langId);
                 $scope.hotspotTest = hotspotTest($scope.langId);
-                $scope.feedbackTest = feedbackTest($scope.langId);
 
                 $scope.detailed = data.result.detailed;
                 // 显示内容
@@ -179,10 +243,13 @@ myapp.controller("indexDetailedController",["$scope","$http","$sce","$location",
 
     // 语言事件
     $scope.clickLanguage = function() {
-        if($scope.isGetUrl){
-            var url = ctx + "appJson/getIndexDetailedNew?dlId="+$scope.dlId+"&langId="+$scope.langId;
-            clicked(url);
+        var url = ctx + "appJson/getIndexDetailedNew?dlId="+$scope.dlId;
+        if($scope.langId == 1){
+            url += "&langId=6";
+        }else{
+            url += "&langId=1";
         }
+        clicked(url);
         // 强制更新  $scope.apply();
     }
 

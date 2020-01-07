@@ -482,3 +482,23 @@ CREATE TABLE `folder_library_relation` (
  `flr_createdate` DATETIME COMMENT '创建时间',
   PRIMARY KEY (`flr_id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+
+-- 2020-1-2
+-- 搜索反馈
+DROP TABLE IF EXISTS `faqs_select_feedback`;
+CREATE TABLE `faqs_select_feedback` (
+  `df_id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `df_lang_id` INT(11) NOT NULL COMMENT '语言ID',
+  `df_ip` VARCHAR(100) DEFAULT NULL COMMENT 'ip',
+  `df_createdate` DATETIME DEFAULT NULL COMMENT '创建时间',
+  `df_suggest_content` VARCHAR(100) DEFAULT NULL COMMENT '建议内容',
+  `df_follow_content` VARCHAR(100) DEFAULT NULL COMMENT '跟进内容',
+  `df_follow` INT(11) DEFAULT '1' COMMENT '默认跟进为1',
+  `df_name` VARCHAR(100) DEFAULT NULL,
+  `df_email` VARCHAR(100) DEFAULT NULL,
+  `df_number` VARCHAR(100) DEFAULT NULL,
+  `df_status` INT(11) DEFAULT '0',
+  PRIMARY KEY (`df_id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

@@ -47,7 +47,8 @@ public class DetailedService {
     E_form_typeDao e_form_typeDao;
     @Resource
     DeFormTypeRelationDao deFormTypeRelationDao;
-
+    @Resource
+    SelectFeedbackDao selectFeedbackDao;
 
 
     @Resource
@@ -422,6 +423,10 @@ public class DetailedService {
      */
     public List<Detailed> getByAllDetaileds(String t){
         return detailedDao.getByAllDetaileds(t);
+    }
+
+    public void addSelectFeedback(SelectFeedback feedback){
+        selectFeedbackDao.save(feedback);
     }
 
 }

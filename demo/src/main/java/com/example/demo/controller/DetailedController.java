@@ -203,6 +203,11 @@ public class DetailedController {
 
         module.putData("detaileds",detaileds);
         module.putData("folderList",folderList);
+        boolean searchFeedback = false;
+        if(detaileds.size() > 0 || folderList.size() > 0){
+            searchFeedback = true;
+        }
+        module.putData("searchFeedback",searchFeedback);
         return module;
     }
 
@@ -451,6 +456,24 @@ public class DetailedController {
         }
         response.sendRedirect(request.getContextPath()+url);
         return "";
+    }
+
+
+    /**
+     * 2020-1-2
+     * 添加搜索反馈信息, 按IP记录
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/addSelectFeedback",method= RequestMethod.POST)
+    public RestResultModule addSelectFeedback(HttpServletRequest request,@RequestBody SelectFeedback feedback){
+        RestResultModule module = new RestResultModule();
+        System.out.println(feedback);
+        feedback.setIp(ipUtil.getIpAddr(request));
+        feedback.setCreateDate(new Date());
+        detailedService.addSelectFeedback(feedback);
+        return module;
     }
 
 

@@ -19,6 +19,22 @@
     <script th:inline="javascript">
         var ctx = [[@{/}]];
     </script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollToTop').fadeIn();
+                } else {
+                    $('.scrollToTop').fadeOut();
+                }
+            });
+
+            $('.scrollToTop').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 800);
+                return false;
+            });
+        });
+    </script>
 
 
 </head>
@@ -29,128 +45,141 @@
         <div class="uk-container uk-container-center">
             <div class="uk-float-right">
                 <span class="glyphicon glyphicon-globe" style="right: 5px;font-size: 14px;"></span>
-                其他語言 :
-                <a style="color: #fff;" href="http://www.onestorage.com.hk/page.php?id=9&amp;lang_id=2">
-                    ENG
+                {{'lab113' | translate}} :
+                <a href="javascript:void(0);" style="color: #fff;" ng-click="clickLanguage()">
+                    {{langTitle}}
                 </a>
             </div>
         </div>
     </div>
+
     <header>
         <div class="uk-container uk-container-center" style="position: relative;">
-            <div id="top-phone" style="color: #f78325; position: absolute; right: 40px; top: 20px; font-size: 16px; font-weight: bold;">
-                <span class="d-none d-md-inline-block"><a href="https://www.facebook.com/onestorage/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjguNzY1LDUwLjMxOWg2Ljc0NFYzMy45OThoNC40OTlsMC41OTYtNS42MjRoLTUuMDk1ICBsMC4wMDctMi44MTZjMC0xLjQ2NiwwLjE0LTIuMjUzLDIuMjQ0LTIuMjUzaDIuODEyVjE3LjY4aC00LjVjLTUuNDA1LDAtNy4zMDcsMi43MjktNy4zMDcsNy4zMTd2My4zNzdoLTMuMzY5djUuNjI1aDMuMzY5VjUwLjMxOXogICBNMyw0aDYwdjYwSDNWNHoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiMzQTU4OUI7Ii8+PC9zdmc+" style="width: 30px;"></a> | </span>
-                <span class="mob_dis">付款方式: 現金.EPS.支票.信用卡.轉數快.免息分期</span> <span style="display:none;"><i class="fa fa-phone uk-margin-small-right" style="vertical-align:middle;"></i>電話：2111-2636</span><a id="24hr-enq" href="/contact.php?id=10"><img src="https://www.onestorage.com.hk/images/contact_24_7.png" alt="" style="height:32px;vertical-align:middle;"></a>                </div>
-            <a id="mobile_bar" class="uk-hidden-large uk-float-right" href="#offcanvas-1" data-uk-offcanvas=""><i class="fa fa-bars f25"></i></a>
-            <h1 id="logo"><a href="https://www.onestorage.com.hk/"><img src="https://www.onestorage.com.hk/images/logo.png"></a></h1>
+            <div id="top-phone"
+                 style="color: #f78325; position: absolute; right: 40px; top: 20px; font-size: 16px; font-weight: bold;">
+                <span class="d-none d-md-inline-block"><a href="https://www.facebook.com/onestorage/"
+                                                          target="_blank"><img
+                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjguNzY1LDUwLjMxOWg2Ljc0NFYzMy45OThoNC40OTlsMC41OTYtNS42MjRoLTUuMDk1ICBsMC4wMDctMi44MTZjMC0xLjQ2NiwwLjE0LTIuMjUzLDIuMjQ0LTIuMjUzaDIuODEyVjE3LjY4aC00LjVjLTUuNDA1LDAtNy4zMDcsMi43MjktNy4zMDcsNy4zMTd2My4zNzdoLTMuMzY5djUuNjI1aDMuMzY5VjUwLjMxOXogICBNMyw0aDYwdjYwSDNWNHoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiMzQTU4OUI7Ii8+PC9zdmc+"
+                        style="width: 30px;"></a> | </span>
+                <span class="mob_dis">{{'lab112' | translate}}</span> <span style="display:none;"><i
+                    class="fa fa-phone uk-margin-small-right" style="vertical-align:middle;"></i>電話：2111-2636</span><a
+                    id="24hr-enq" href="/contact.php?id=10"><img
+                    ng-src="{{img24}}" alt=""
+                    style="height:32px;vertical-align:middle;"></a></div>
+            <a id="mobile_bar" class="uk-hidden-large uk-float-right" href="#offcanvas-1" data-uk-offcanvas=""><i
+                    class="fa fa-bars f25"></i></a>
+            <h1 id="logo"><a href="https://www.onestorage.com.hk/"><img
+                    src="https://www.onestorage.com.hk/images/logo.png"></a></h1>
             <!-- nav-wrap S -->
             <nav class="nav-wrap uk-float-right uk-visible-large">
                 <ul id="nav" class="uk-float-left header-menu">
                     <li class="nav-item">
                         <a href="page.php?id=3" class="top-a top-a3">
-                            關於我們                                    </a>
+                            {{'lab102' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown">
 
-                            <button class="btn btn-link a top-a17" type="button" id="dropdown-district" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地區分店及價錢</button>
+                            <button class="btn btn-link a top-a17" type="button" id="dropdown-district"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'lab103' | translate}}
+                            </button>
 
                             <div class="dropdown-menu" aria-labelledby="dropdown-district">
                                 <a class="dropdown-item" href="page.php?id=17">
-                                    所有                                            </a>
+                                    所有 </a>
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=50">
-                                    柴灣(柴工分店)                                                    </a>
+                                    柴灣(柴工分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=51">
-                                    柴灣(萬峰分店)                                                    </a>
+                                    柴灣(萬峰分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=21">
-                                    柴灣 (王子分店)                                                    </a>
+                                    柴灣 (王子分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=32">
-                                    新蒲崗(捷景分店)                                                    </a>
+                                    新蒲崗(捷景分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=23">
-                                    葵涌(同珍分店)                                                    </a>
+                                    葵涌(同珍分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=29">
-                                    葵涌(有利分店)                                                    </a>
+                                    葵涌(有利分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=37">
-                                    葵興(貴豐分店)                                                    </a>
+                                    葵興(貴豐分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=45">
-                                    葵芳(美適分店)                                                    </a>
+                                    葵芳(美適分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=22">
-                                    荃灣(京華分店)                                                    </a>
+                                    荃灣(京華分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=24">
-                                    青衣(青衣工業中心)                                                    </a>
+                                    青衣(青衣工業中心) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=44">
-                                    馬灣                                                    </a>
+                                    馬灣 </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=39">
-                                    火炭(富昌分店)                                                    </a>
+                                    火炭(富昌分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=40">
-                                    火炭(華威分店)                                                    </a>
+                                    火炭(華威分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=25">
-                                    屯門(通明分店)                                                    </a>
+                                    屯門(通明分店) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=35">
-                                    葵涌(共享倉)                                                    </a>
+                                    葵涌(共享倉) </a>
 
 
                                 <!--  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=43">
-                                    火炭(共享倉)                                                    </a>
+                                    火炭(共享倉) </a>
 
 
                                 <!--                                                         <a class="hmenu dropdown-item" href="page.php?id=17&aid=43" id="banner-ty-discount-top">
@@ -160,7 +189,7 @@
                                  -->
 
                                 <a class="hmenu dropdown-item" href="page.php?id=17&amp;aid=49">
-                                    零售存貨物流服務-葵芳站                                                    </a>
+                                    零售存貨物流服務-葵芳站 </a>
 
 
                                 <!--  -->
@@ -171,41 +200,42 @@
                     </li>
                     <li class="nav-item">
                         <a href="page.php?id=4" class="top-a top-a4">
-                            最新優惠                                    </a>
+                            {{'lab104' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="page.php?id=6" class="top-a top-a6">
-                            服務設備                                    </a>
+                            {{'lab105' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="news_list.php?id=7&amp;main=1" class="top-a top-a7">
-                            最新資訊                                    </a>
+                            {{'lab106' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="page.php?id=9" class="top-a top-a9 active">
-                            常見問題                                    </a>
+                            {{'lab107' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="page.php?id=36" class="top-a top-a36">
-                            職位空缺                                    </a>
+                            {{'lab108' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="contact.php?id=10" class="top-a top-a10">
-                            聯絡我們                                    </a>
+                            {{'lab109' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="size_calculator.php" class="top-a top-a47">
-                            空間計算器                                    </a>
+                            {{'lab110' | translate}} </a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#calculator" class="top-a top-a41">
-                            立即報價                                    </a>
+                            {{'lab111' | translate}} </a>
                     </li>
                 </ul>
             </nav>
             <!-- nav-wrap E -->
         </div>
     </header>
+
     <hr style="margin-bottom: 0px;">
     <!--内容-->
     <div class="page_box" style="/* text-align:justify; */">
@@ -258,6 +288,47 @@
                         </div>
                     </div>
 
+                    <hr style="width:100%;border:none; border-bottom:2px solid #BA2E90;">
+
+                    <!-- feedback-->
+                    <div class="row" style="margin-left: -3px;">
+                        <div class="col-xs-4 col-sm-3 col-md-2">{{'lab130'|translate}}</div>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <div class="col-xs-3 col-sm-3 col-md-2" style="padding-top: 20px;">
+                                <div class="praise">
+                            <span id="praise">
+                                <img th:src="@{/img/hui1.png}" id="praise-img" class="animation">
+                            </span>
+                                    <!--    <span id="praise-txt">{{dfcount}}</span>-->
+                                    <span id="add-num" style="display: inline;"></span>
+                                </div>
+                                <div class="praise">
+                                    <span id="praise1"><img th:src="@{/img/hui2.png}" id="praise-img1" class="animation"></span>
+                                    <span id="add-num1" style="display: inline;"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-9 col-sm-6 col-md-8" style="padding-top: 86px;">
+                                <div id="praiseNayTest" ng-show="praiseNayTest > 0">
+                                    <div>
+                                        <div style="font-weight: bold;">{{'lab124'|translate}}</div>
+                                        <textarea class="form-control"  style="margin-bottom: 10px;" rows="5" ng-model="dfContent" placeholder="{{'lab125'|translate}}"></textarea>
+                                    </div>
+                                    <div>
+                                        <div style="margin-bottom: 8px;font-weight: bold;">{{'lab126'|translate}}</div>
+                                        <input type="text" class="form-control" id="dfContentEmail" ng-model="dfContentEmail" placeholder="{{'lab127'|translate}}">
+                                        <div style="font-weight: bold;">{{'lab128'|translate}}</div>
+                                        <input style="margin-bottom: 10px;" type="text" class="form-control" id="dfContentNumber" ng-model="dfContentNumber" placeholder="{{'lab129'|translate}}">
+                                    </div>
+                                    <div style="padding-top: 20px;text-align: right;">
+                                        <button class="btn btn-default" type="button" ng-click="addDfContent()">{{'lab14'|translate}}</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
@@ -267,6 +338,115 @@
 
 
 </div>
+
+
+<!-- 底部-->
+<div class="container my-3 text-center">
+    <img src="https://www.onestorage.com.hk/images/badges/selfstorageasia.png" class="img-fluid mx-3" width="100">
+
+    <img src="https://www.onestorage.com.hk/images/badges/hongkongmsa.jpg" class="img-fluid mx-3" width="120">
+</div>
+<div class="container my-4 text-center" style="margin-top: 1.5rem!important;margin-bottom: 1.5rem!important;">
+    <a href="https://onestorage.com.hk/page.php?id=3" target="_blank">迷你倉 出租</a> | <a
+        href="https://onestorage.com.hk/page.php?id=17&amp;aid=32" target="_blank">租倉 新蒲崗</a> | <a
+        href="https://onestorage.com.hk/page.php?id=3" target="_blank">火炭 分店</a> | <a href="https://onestorage.com.hk/"
+                                                                                      target="_blank">迷你倉 價錢</a> | <a
+        href="https://onestorage.com.hk/" target="_blank">至尊迷你倉</a> | <a
+        href="https://onestorage.com.hk/page.php?id=17&amp;aid=21" target="_blank">柴灣 租倉</a> | <a
+        href="https://onestorage.com.hk/page.php?id=17" target="_blank">香港區 迷你倉</a> | <a
+        href="https://onestorage.com.hk/page.php?id=17&amp;aid=29" target="_blank">葵涌 迷你倉</a> | <a
+        href="https://onestorage.com.hk/page.php?id=17&amp;aid=21" target="_blank">柴灣 迷你倉</a> | <a
+        href="https://onestorage.com.hk/page.php?id=17&amp;aid=23" target="_blank">裝修存倉服務</a></div>
+<footer class="uk-text-center position-relative" style="padding:15px 0 15px;background: #3e1c3f;color: #fff;">
+    © 2018 {{'lab132' | translate}} | {{'lab133' | translate}} | <a href="https://www.onestorage.com.hk/page.php?id=28">{{'lab134'
+    | translate}}</a>
+</footer>
+
+<style>
+    .shortcut-box {
+        position: fixed;
+        bottom: 20px;
+        z-index: 500;
+        right: 50px;
+    }
+    .bottom.shortcut-box .top-btn {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    .shortcut-box .top-btn {
+        border-bottom: 0;
+        -o-transition: all .4s;
+        -ms-transition: all .4s;
+        -moz-transition: all .4s;
+        -webkit-transition: all .4s;
+        transition: all .4s;
+    }
+    .shortcut-box .btn {
+        position: relative;
+        background: #fff;
+        display: block;
+        border: 1px solid #E6E6E6;
+        cursor: pointer;
+        padding: 16px;
+    }
+    .shortcut-box .top-btn i, .shortcut-box .back-btn i, .shortcut-box .feedback-btn i {
+        background-size: 18px 72px;
+        background-image: url(https://dgss2.bdstatic.com/5eR1dDebRNRTm2_p8IuM_a/her/static/indexnew/pkg/aio-all_0.45_z.85f992e.png);
+    }
+    .shortcut-box .top-btn i {
+        background-position: 0px 0px;
+    }
+    .shortcut-box .feedback-btn i {
+        background-position: 0px -54px;
+    }
+    .shortcut-box .btn i {
+        display: block;
+        height: 18px;
+        width: 18px;
+    }
+    .shortcut-box .tip {
+        background-position: 0px -447px;
+        background-size: 90px 561px;
+        background-image: url(https://dgss2.bdstatic.com/5eR1dDebRNRTm2_p8IuM_a/her/static/indexnew/pkg/aio-all_0.5_z.b5152ca.png);
+    }
+    .shortcut-box .tip {
+        position: absolute;
+        width: 90px;
+        height: 28px;
+        line-height: 28px;
+        left: -103px;
+        top: 12px;
+        padding-left: 14px;
+        color: #fff;
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transition: all .3s;
+        -moz-transition: all .3s;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        background-repeat: no-repeat;
+    }
+    .shortcut-box .top-btn:hover .tip {
+        visibility: visible;
+        left: -94px;
+        opacity: .9;
+        filter: alpha(opacity=90);
+    }
+    .shortcut-box .feedback-btn:hover .tip {
+        visibility: visible;
+        left: -94px;
+        opacity: .9;
+        filter: alpha(opacity=90);
+    }
+
+</style>
+<div id="shortcut-box" class="shortcut-box bottom" monkey="rightbutton"><a style="display: none;" class="scrollToTop top-btn btn" data-hook="top"
+                                                                           alog-text="回到顶部" monkey="top"><i></i><span
+        class="tip">回到顶部</span></a></div>
+
+
 
 </body>
 

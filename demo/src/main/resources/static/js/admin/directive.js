@@ -15,8 +15,17 @@ myapp.directive('leftDirective', function() {
         "                <li class=\"folderPage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/folder')\">Folder Category</a></li>\n" +
         "                <li class=\"faqOnePage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/faqOne')\">FAQ Library</a></li>\n" +
         "                <li class=\"faqTwoPage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/faqTwo')\">Question List</a></li>\n" +
-        "                <li class=\"feedbackPage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/feedback')\">FAQ Feedback</a></li>\n" +
-
+        "                        <li>\n" +
+        "                            <a href=\"#\"><i class=\"fa fa-sitemap fa-fw\"></i>FAQ Feedback<span class=\"glyphicon glyphicon-test\"></span></a>\n" +
+        "                            <ul class=\"nav nav-second-level navbartop2\">\n" +
+        "                                <li  class=\"selectfeedbackPage\">\n" +
+        "                                    <a href='javascript:void(0);' ng-click=\"goCancel('" + ctx + "appPage/admin/selectFeedback')\"> &nbsp;&nbsp;&nbsp;&nbsp;Search Feedback</a>\n" +
+        "                                </li>\n" +
+        "                                <li  class=\"feedbackPage\" >\n" +
+        "                                   <a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/feedback')\"> &nbsp;&nbsp;&nbsp;&nbsp;Question Feedback</a>"+
+        "                                </li>\n" +
+        "                            </ul>\n" +
+        "                        </li>\n" +
         "                        <li>\n" +
         "                            <a href=\"#\"><i class=\"fa fa-sitemap fa-fw\"></i>Search For<span class=\"glyphicon glyphicon-test\"></span></a>\n" +
         "                            <ul class=\"nav nav-second-level navbartop3\">\n" +
@@ -27,7 +36,6 @@ myapp.directive('leftDirective', function() {
         "                                   <a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/notags')\"> &nbsp;&nbsp;&nbsp;&nbsp;No Result Key Words</a>"+
         "                                </li>\n" +
         "                            </ul>\n" +
-        "                            <!-- /.nav-second-level -->\n" +
         "                        </li>\n" +
         "                <li class=\"reportPage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/report')\">Report</a></li>\n" +
         "            </ul></div>";
@@ -71,6 +79,17 @@ myapp.directive('topDirective', function() {
         "                <li class=\"faqOnePage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/faqOne')\">FAQ Library</a></li>\n" +
         "                <li class=\"faqTwoPage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/faqTwo')\">Question List</a></li>\n" +
         "                <li class=\"feedbackPage\"><a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/feedback')\">FAQ Feedback</a></li>\n" +
+        "                        <li>\n" +
+        "                            <a href=\"#\"><i class=\"fa fa-sitemap fa-fw\"></i>FAQ Feedback<span class=\"glyphicon glyphicon-test\"></span></a>\n" +
+        "                            <ul class=\"nav nav-second-level navbartop2\">\n" +
+        "                                <li  class=\"selectfeedbackPage\">\n" +
+        "                                    <a href='javascript:void(0);' ng-click=\"goCancel('" + ctx + "appPage/admin/selectFeedback')\"> &nbsp;&nbsp;&nbsp;&nbsp;Search Feedback</a>\n" +
+        "                                </li>\n" +
+        "                                <li  class=\"feedbackPage\" >\n" +
+        "                                   <a href=\"javascript:void(0);\" ng-click=\"goCancel('" + ctx + "appPage/admin/feedback')\"> &nbsp;&nbsp;&nbsp;&nbsp;Question Feedback</a>"+
+        "                                </li>\n" +
+        "                            </ul>\n" +
+        "                        </li>\n" +
         "                        <li>\n" +
         "                            <a href=\"#\"><i class=\"fa fa-sitemap fa-fw\"></i>Search For<span class=\"glyphicon glyphicon-test\"></span></a>\n" +
         "                            <ul class=\"nav nav-second-level navbartop3\">\n" +
